@@ -27,4 +27,7 @@ metadata.rb
 your_recipe.rb
     include_recipe 'sar'
 
+Platforms
+=========
 
+This has been tested on Ubuntu but should work on Debian like systems and maybe others. If there is a need for this on another system, I'd be glad to implemenet functionality for this.
