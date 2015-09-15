@@ -4,6 +4,7 @@
 #
 # Copyright (c) 2015, Lincoln Abbey <linc.abbey@gmail.com>
 
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../..')
 require 'spec_helper'
 
 describe 'sar::default' do
@@ -13,8 +14,24 @@ describe 'sar::default' do
       runner.converge(described_recipe)
     end
 
-    it 'converges successfully' do
-      chef_run # This should not raise an error
+    it 'installs the sysstat package' do
+      expect(chef_run).to install_package('sysstat')
+    end
+
+    it 'creates config file /etc/default/sysstat' do
+      expect(chef_run).to create_template('/etc/default/sysstat').with(
+        user: 'root',
+        group: 'root',
+        mode: 0644
+      )
+    end
+
+    it 'creates config file /etc/cron.d/sysstat' do
+      expect(chef_run).to create_template('/etc/cron.d/sysstat').with(
+        user: 'root',
+        group: 'root',
+        mode: 0644
+      )
     end
   end
 end
