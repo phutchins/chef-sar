@@ -7,11 +7,11 @@ template '/etc/default/sysstat' do
   mode 0644
   owner 'root'
   group 'root'
-  variables({
-    :sar_enabled => node['sar']['enabled'],
-    :sa1_options => node['sar']['sa1_options'],
-    :sa2_options => node['sar']['sa2_options']
-  })
+  variables(
+    sar_enabled: node['sar']['enabled'],
+    sa1_options: node['sar']['sa1_options'],
+    sa2_options: node['sar']['sa2_options']
+  )
 end
 
 template '/etc/cron.d/sysstat' do
@@ -19,7 +19,7 @@ template '/etc/cron.d/sysstat' do
   mode 0644
   owner 'root'
   group 'root'
-  variables({
-    :run_every_minutes => node['sar']['cron']['run_every_minutes']
-  })
+  variables(
+    run_every_minutes: node['sar']['cron']['run_every_minutes']
+  )
 end
