@@ -2,7 +2,7 @@
 # Cookbook Name:: sar
 # Spec:: default
 #
-# Copyright (c) 2015, Lincoln Abbey <linc.abbey@gmail.com>
+# Copyright (c) 2015, Philip Hutchins <flipture@gmail.com>
 
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../..')
 require 'spec_helper'
