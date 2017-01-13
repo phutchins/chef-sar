@@ -9,7 +9,3 @@ version '0.0.2'
 %w(ubuntu debian redhat centos scientific amazon fedora).each do |os|
   supports os
 end
-
-%w(yum apt).each do |ckbk|
-  recommends ckbk
-end
